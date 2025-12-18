@@ -74,3 +74,17 @@ Ce document retrace l'intégralité de mon processus de réflexion et mes intera
 * **Qualité du résultat :** L'interface est très intuitive. L'utilisation d'un `sidebar` pour les filtres laisse tout l'espace central pour les graphiques.
 * **Esprit Critique :** J'ai dû m'assurer que les données étaient bien filtrées *avant* de recalculer les tendances mobiles, sinon la courbe de tendance n'aurait pas correspondu à la période sélectionnée à l'écran.
 * **Apprentissage :** J'ai appris à orchestrer un projet multi-fichiers en Python et à utiliser les composants de mise en page de Streamlit (colonnes, métriques, diviseurs).
+
+---
+
+### Résolution de bug : Erreur de Parsing (Tâche 4.2)
+**Date :** 18 décembre 2025
+
+**Problème rencontré :** Une `ParserError` survenait lors de l'exécution car le fichier du Met Office contient des notes de bas de page après la ligne 800 qui ne respectent pas le format des 7 colonnes.
+
+**Prompt utilisé :**
+>"Mon application Streamlit affiche une pandas.errors.ParserError: Expected 7 fields in line 800, saw 8. Cela arrive car le fichier texte du Met Office contient des notes de bas de page ou des lignes de commentaires à la fin du fichier qui ne respectent plus le format des colonnes. Peux-tu modifier la fonction load_weather_data dans src/data_loader.py pour ajouter le paramètre on_bad_lines='skip' dans l'appel pd.read_csv ? Cela permettra d'ignorer ces lignes malformées et de charger correctement le reste des données."
+
+**Réflexion et Critique :**
+* **Solution :** L'ajout de `on_bad_lines='skip'` permet d'ignorer les lignes malformées sans interrompre le chargement des données valides.
+* **Apprentissage :** J'ai appris que les données réelles nécessitent souvent des mécanismes de tolérance aux erreurs. Savoir identifier l'origine d'un crash dans les logs de Streamlit est une compétence clé pour maintenir une application.
