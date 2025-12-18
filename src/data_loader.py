@@ -9,7 +9,7 @@ def load_weather_data():
     
     Returns:
         pd.DataFrame: DataFrame contenant les données météorologiques nettoyées avec les colonnes :
-                      Year, Month, tmax, tmin, af, rain, sun
+                      yyyy, mm, tmax, tmin, af, rain, sun
     """
     # URL des données météorologiques
     url = "https://www.metoffice.gov.uk/pub/data/weather/uk/climate/stationdata/cambridgedata.txt"
@@ -29,7 +29,7 @@ def load_weather_data():
         data_text,
         skiprows=7,
         sep=r'\s+',
-        names=['Year', 'Month', 'tmax', 'tmin', 'af', 'rain', 'sun'],
+        names=['yyyy', 'mm', 'tmax', 'tmin', 'af', 'rain', 'sun'],
         na_values=['*', '---', '---*'],
         engine='python'
     )
