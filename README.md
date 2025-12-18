@@ -45,14 +45,14 @@ python -m streamlit run src/app.py
 * **Résultat :** Une page web s'ouvrira automatiquement dans votre navigateur pour afficher le tableau de bord.
 
 ## Structure du projet
-`src/data_loader.py` : Acquisition des données via URL, nettoyage (gestion des NaN et ParserError) et mise en cache locale.
+* **`src/data_loader.py` :** Acquisition des données via URL, nettoyage (gestion des NaN et ParserError) et mise en cache locale.
 
-`src/analysis.py` : Logique des calculs statistiques (moyennes, tendances glissantes, records).
+* **`src/analysis.py` :** Logique des calculs statistiques (moyennes, tendances glissantes, records).
 
-`src/visualization.py` : Fonctions de génération des graphiques interactifs avec la bibliothèque Plotly.
+* **`src/visualization.py` :** Fonctions de génération des graphiques interactifs avec la bibliothèque Plotly.
 
-`src/app.py` : Interface utilisateur réalisée avec Streamlit qui assemble tous les modules.
+* **`src/app.py` :** Interface utilisateur réalisée avec Streamlit qui assemble tous les modules.
 
-`docs/rapport.md` : Rapport d'analyse final détaillant les choix techniques et les conclusions sur les données.
+* **`docs/rapport.md` :** Rapport d'analyse final détaillant les choix techniques et les conclusions sur les données.
 
-`PROMPTS.md` : Journal de bord documentant l'utilisation de l'IA (GitHub Copilot) pour chaque étape du projet.
+* **`PROMPTS.md` :** Journal de bord documentant l'utilisation de l'IA (GitHub Copilot) pour chaque étape du projet.
