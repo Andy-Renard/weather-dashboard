@@ -165,6 +165,6 @@ def plot_extreme_heatmap(df):
     )
     
     # Inverser l'axe Y pour avoir les années récentes en haut
-    fig.update_yaxis(autorange='reversed')
+    fig.update_yaxes(autorange='reversed')
     
     return fig
