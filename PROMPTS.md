@@ -18,3 +18,14 @@ Ce document retrace l'intégralité de mon processus de réflexion et mes intera
 * **Apprentissage :** J'ai compris comment utiliser `StringIO` pour lire un texte brut directement dans un DataFrame sans créer de fichier temporaire.  
 
 ---
+
+### Tâche 1.2 : Mise en cache locale (src/data_loader.py)
+**Date :** 18 décembre 2025
+
+**Prompt utilisé :**
+>"Je souhaite améliorer ma fonction load_weather_data dans le fichier src/data_loader.py en y ajoutant un système de mise en cache locale. L'objectif est d'optimiser le programme pour qu'il ne télécharge pas les données à chaque exécution. Peux-tu modifier le code pour qu'il vérifie d'abord si le fichier data/cache/cambridge_data.csv existe déjà sur mon ordinateur ? Si le fichier est présent, la fonction doit charger les données directement depuis ce CSV local. S'il est absent, la fonction doit procéder au téléchargement depuis l'URL du Met Office comme auparavant, puis sauvegarder le DataFrame obtenu dans le dossier data/cache/ avant de le retourner. Merci d'utiliser la bibliothèque os ou pathlib pour la gestion des chemins et de t'assurer que le dossier de cache est créé s'il n'existe pas encore."
+
+**Réflexion et Critique :**
+* **Qualité du résultat :** L'IA a utilisé `pathlib`, ce qui rend le code plus lisible et compatible entre Windows et Mac/Linux. Elle a bien pensé à créer le dossier automatiquement s'il n'existe pas.
+* **Esprit Critique :** J'ai vérifié que la sauvegarde du cache se fait *après* le nettoyage numérique des données. C'est un bon choix technique, car le fichier CSV local sera ainsi "propre" et prêt à l'emploi dès sa lecture.
+* **Apprentissage :** J'ai appris à utiliser `mkdir(parents=True)` pour créer une structure de dossiers imbriqués en une seule ligne de code.
