@@ -88,3 +88,18 @@ Ce document retrace l'intégralité de mon processus de réflexion et mes intera
 **Réflexion et Critique :**
 * **Solution :** L'ajout de `on_bad_lines='skip'` permet d'ignorer les lignes malformées sans interrompre le chargement des données valides.
 * **Apprentissage :** J'ai appris que les données réelles nécessitent souvent des mécanismes de tolérance aux erreurs. Savoir identifier l'origine d'un crash dans les logs de Streamlit est une compétence clé pour maintenir une application.
+
+---
+
+### Correction de l'API Plotly et finalisation (src/visualization.py) (Tâche 4.3)
+**Date :** 18 décembre 2025
+
+**Problème rencontré :** Lors du rendu de la Heatmap, l'application a généré une erreur `AttributeError: 'Figure' object has no attribute 'update_yaxis'`.
+
+**Prompt utilisé :**
+>"Mon application affiche une erreur AttributeError: 'Figure' object has no attribute 'update_yaxis' à la ligne 168 du fichier src/visualization.py. Peux-tu corriger cette ligne en utilisant la méthode correcte de Plotly, qui est fig.update_yaxes(autorange='reversed') au pluriel ? Vérifie également si d'autres fonctions utilisent par erreur le singulier pour les axes."
+
+**Réflexion et Critique :**
+* **Qualité du résultat :** La correction a permis de rétablir l'affichage de la Heatmap avec les années les plus récentes en haut du graphique.
+* **Esprit Critique :** Cette erreur montre que les suggestions des IA peuvent parfois comporter des imprécisions sur les noms de méthodes de bibliothèques tierces. La vérification via la console d'erreur de Streamlit a été indispensable pour identifier le caractère manquant ("s").
+* **Apprentissage :** J'ai renforcé ma compréhension de l'objet `Figure` de Plotly et de la distinction entre les méthodes de mise à jour globale (`update_layout`) et spécifique aux axes (`update_yaxes`).
