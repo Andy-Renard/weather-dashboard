@@ -38,13 +38,15 @@ def load_weather_data():
     # skiprows=7 : ignore les 7 premières lignes d'en-tête
     # sep='\s+' : séparateur d'espaces variables
     # na_values : traite '*' et '---' comme NaN
+    # on_bad_lines='skip' : ignore les lignes malformées (notes de bas de page, commentaires)
     df = pd.read_csv(
         data_text,
         skiprows=7,
         sep=r'\s+',
         names=['yyyy', 'mm', 'tmax', 'tmin', 'af', 'rain', 'sun'],
         na_values=['*', '---', '---*'],
-        engine='python'
+        engine='python',
+        on_bad_lines='skip'
     )
     
     # Conversion de toutes les colonnes en types numériques
