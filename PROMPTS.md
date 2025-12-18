@@ -29,3 +29,16 @@ Ce document retrace l'intégralité de mon processus de réflexion et mes intera
 * **Qualité du résultat :** L'IA a utilisé `pathlib`, ce qui rend le code plus lisible et compatible entre Windows et Mac/Linux. Elle a bien pensé à créer le dossier automatiquement s'il n'existe pas.
 * **Esprit Critique :** J'ai vérifié que la sauvegarde du cache se fait *après* le nettoyage numérique des données. C'est un bon choix technique, car le fichier CSV local sera ainsi "propre" et prêt à l'emploi dès sa lecture.
 * **Apprentissage :** J'ai appris à utiliser `mkdir(parents=True)` pour créer une structure de dossiers imbriqués en une seule ligne de code.
+
+## 🛠 Phase 2 : Analyse Statistique des Données
+
+### Tâche 2.1 : Fonctions d'analyse statistique (src/analysis.py)
+**Date :** 18 décembre 2025
+
+**Prompt utilisé :**
+>"Je travaille maintenant sur le fichier src/analysis.py pour mon projet de tableau de bord météo. Peux-tu rédiger une série de fonctions utilisant la bibliothèque pandas pour analyser le DataFrame que j'ai récupéré ? J'ai besoin d'une première fonction get_top_records(df, column, n=10) qui retourne les $n$ lignes ayant les valeurs les plus hautes pour une colonne spécifique (comme 'tmax' ou 'rain'). Ensuite, crée une fonction calculate_annual_averages(df) qui calcule une nouvelle colonne pour la température moyenne (la moyenne arithmétique entre 'tmax' et 'tmin') puis regroupe les données par année pour obtenir une moyenne annuelle globale. Enfin, ajoute une fonction calculate_rolling_trends(df, window=10) qui applique une moyenne mobile sur 10 ans sur les températures moyennes afin de lisser les variations saisonnières et faire ressortir la tendance climatique. Merci d'inclure des commentaires explicatifs (docstrings) et de t'assurer que les calculs ignorent correctement les valeurs manquantes (NaN)."
+
+**Réflexion et Critique :**
+* **Qualité du résultat :** L'IA a produit un code très robuste. L'utilisation de `pd.to_numeric` dans l'étape précédente porte ses fruits ici car les fonctions Pandas fonctionnent parfaitement.
+* **Esprit Critique :** J'ai vérifié la formule de `tmean`. Faire la moyenne de `tmax` et `tmin` est la méthode standard acceptée dans ce projet pour estimer la température moyenne mensuelle.
+* **Apprentissage :** J'ai découvert le concept de "fenêtre glissante" (rolling window) pour l'analyse de séries temporelles.
