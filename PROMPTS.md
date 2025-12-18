@@ -30,6 +30,8 @@ Ce document retrace l'intégralité de mon processus de réflexion et mes intera
 * **Esprit Critique :** J'ai vérifié que la sauvegarde du cache se fait *après* le nettoyage numérique des données. C'est un bon choix technique, car le fichier CSV local sera ainsi "propre" et prêt à l'emploi dès sa lecture.
 * **Apprentissage :** J'ai appris à utiliser `mkdir(parents=True)` pour créer une structure de dossiers imbriqués en une seule ligne de code.
 
+---
+
 ## 🛠 Phase 2 : Analyse Statistique des Données
 
 ### Tâche 2.1 : Fonctions d'analyse statistique (src/analysis.py)
@@ -43,6 +45,8 @@ Ce document retrace l'intégralité de mon processus de réflexion et mes intera
 * **Esprit Critique :** J'ai vérifié la formule de `tmean`. Faire la moyenne de `tmax` et `tmin` est la méthode standard acceptée dans ce projet pour estimer la température moyenne mensuelle.
 * **Apprentissage :** J'ai découvert le concept de "fenêtre glissante" (rolling window) pour l'analyse de séries temporelles.
 
+---
+
 ## 🛠 Phase 3 : Visualisation Interactive des Données
 
 ### Tâche 3.1 : Création des graphiques Plotly (src/visualization.py)
@@ -55,3 +59,18 @@ Ce document retrace l'intégralité de mon processus de réflexion et mes intera
 * **Qualité du résultat :** L'IA a généré des graphiques très complets avec des infobulles (hovertemplates) personnalisées.
 * **Esprit Critique :** J'ai particulièrement apprécié l'inversion de l'axe Y dans la heatmap (`autorange='reversed'`), ce qui permet de voir les années les plus récentes en haut, rendant la lecture plus intuitive.
 * **Apprentissage :** J'ai appris à utiliser `pivot_table` pour restructurer des données avant de les injecter dans une Heatmap, et l'importance des "color scales" pour représenter des données de température (rouge pour le chaud, bleu pour le froid).
+
+---
+
+## 🛠 Phase 4 : Interface Utilisateur (Dashboard Web)
+
+### Tâche 4.1 : Création de l'application Streamlit (src/app.py)
+**Date :** 18 décembre 2025
+
+**Prompt utilisé :**
+>"Je souhaite finaliser mon projet en créant l'interface utilisateur dans le fichier src/app.py avec la bibliothèque Streamlit. L'application doit importer les fonctions load_weather_data de src.data_loader, calculate_rolling_trends et get_top_records de src.analysis, ainsi que les trois fonctions de visualisation de src.visualization. L'interface doit afficher un titre 'Tableau de bord météo : Cambridge' suivi d'une brève introduction. Ajoute une barre latérale avec un curseur (st.sidebar.slider) permettant de filtrer les données selon une plage d'années définie par l'utilisateur. Dans le corps principal, affiche les graphiques interactifs (évolution des températures, précipitations et heatmap) en utilisant les données filtrées. Enfin, ajoute une section pour afficher les records historiques sous forme de tableaux simples pour les mois les plus chauds et les plus pluvieux. Assure-toi que la mise en page est propre et que les erreurs d'importation sont évitées."
+
+**Réflexion et Critique :**
+* **Qualité du résultat :** L'interface est très intuitive. L'utilisation d'un `sidebar` pour les filtres laisse tout l'espace central pour les graphiques.
+* **Esprit Critique :** J'ai dû m'assurer que les données étaient bien filtrées *avant* de recalculer les tendances mobiles, sinon la courbe de tendance n'aurait pas correspondu à la période sélectionnée à l'écran.
+* **Apprentissage :** J'ai appris à orchestrer un projet multi-fichiers en Python et à utiliser les composants de mise en page de Streamlit (colonnes, métriques, diviseurs).
