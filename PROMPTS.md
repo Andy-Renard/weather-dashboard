@@ -42,3 +42,16 @@ Ce document retrace l'intégralité de mon processus de réflexion et mes intera
 * **Qualité du résultat :** L'IA a produit un code très robuste. L'utilisation de `pd.to_numeric` dans l'étape précédente porte ses fruits ici car les fonctions Pandas fonctionnent parfaitement.
 * **Esprit Critique :** J'ai vérifié la formule de `tmean`. Faire la moyenne de `tmax` et `tmin` est la méthode standard acceptée dans ce projet pour estimer la température moyenne mensuelle.
 * **Apprentissage :** J'ai découvert le concept de "fenêtre glissante" (rolling window) pour l'analyse de séries temporelles.
+
+## 🛠 Phase 3 : Visualisation Interactive des Données
+
+### Tâche 3.1 : Création des graphiques Plotly (src/visualization.py)
+**Date :** 18 décembre 2025
+
+**Prompt utilisé :**
+>"Je travaille maintenant sur le fichier src/visualization.py pour mon projet de dashboard météo. Peux-tu rédiger des fonctions utilisant la bibliothèque plotly pour créer des graphiques interactifs basés sur mon analyse ? J'ai besoin d'une première fonction plot_temperature_trends(df_annual) qui trace l'évolution de la température moyenne annuelle ('tmean') ainsi que la courbe de tendance mobile ('tmean_trend') sur le même graphique. Ensuite, crée une fonction plot_precipitation_bar(df_annual) pour afficher les précipitations totales ('rain') sous forme de graphique à barres par année. Enfin, ajoute une fonction plot_extreme_heatmap(df) qui génère une carte de chaleur montrant les températures maximales ('tmax') avec les années en axe vertical et les mois en axe horizontal. Toutes ces fonctions doivent retourner un objet Figure de Plotly pour être facilement intégrables dans une interface Streamlit. Assure-toi que les titres et les axes sont clairement libellés en français et que les graphiques sont esthétiques."
+
+**Réflexion et Critique :**
+* **Qualité du résultat :** L'IA a généré des graphiques très complets avec des infobulles (hovertemplates) personnalisées.
+* **Esprit Critique :** J'ai particulièrement apprécié l'inversion de l'axe Y dans la heatmap (`autorange='reversed'`), ce qui permet de voir les années les plus récentes en haut, rendant la lecture plus intuitive.
+* **Apprentissage :** J'ai appris à utiliser `pivot_table` pour restructurer des données avant de les injecter dans une Heatmap, et l'importance des "color scales" pour représenter des données de température (rouge pour le chaud, bleu pour le froid).
